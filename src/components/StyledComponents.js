@@ -4,12 +4,16 @@ import styled, { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 
   :root { 
-    --gray-light:#F4F4F4;
-    --gray-color:#D9D9D9;
-    --gray-dark:#9D9D9D;
-    --blue-color:#0022FF;
+    --main-light: #F4F4F4;
+    --main-color: #222222;
+    --main-dark: #9D9D9D;
+    --gray-light: #F4F4F4;
+    --gray-color: #D9D9D9;
+    --gray-dark: #9D9D9D;
+    --blue-color: #0022FF;
     --red-color: #FF0000;
     --orange-color: #FFBB00;
+    --line-color: #D9D9D9;
     --background-color: #ffffff;
     --text-color: #222222;
     --font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
@@ -107,4 +111,62 @@ const Container = styled.div`
   padding: 4rem 2rem;
 `;
 
-export { GlobalStyle, Container };
+const Input = styled.input`
+  padding: 0.5rem 0.8rem;
+  width: 100%;
+  border: 1px solid var(--line-color);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: border-color 0.3s;
+  font-size: 0.7rem;
+
+  &:focus {
+    background-color: var(--main-light);
+    border: 1px solid var(--main-color);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--gray-dark);
+  }
+
+  &[type="date"] {
+    font-family: var(--font-family);
+    padding: 0.4rem;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+const Button = styled.button`
+  background-color: var(--main-color);
+  color: var(--background-color);
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--gray-color);
+    cursor: not-allowed;
+  }
+`;
+
+const ErrorMessage = styled.p`
+  margin-top: 0.2rem;
+  font-size: 0.6em;
+  color: var(--red-color);
+  letter-spacing: -1px;
+`;
+
+export { GlobalStyle, Container, Input, ErrorMessage, Button };
