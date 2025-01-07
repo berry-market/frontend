@@ -1,0 +1,74 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--text-color);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.form_item {
+  margin: 1rem 0;
+}
+
+.form_item label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.password_container {
+  position: relative;
+}
+
+.see_pw_button {
+  position: absolute;
+  right: 0.5rem;
+  top: 26%;
+  background: none;
+  border: none;
+}
+
+.eye_icon {
+  height: 0.8rem;
+  color: var(--gray-dark);
+}
+
+.login_button {
+  margin: 2rem auto;
+  width: 8rem;
+}
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.signup p {
+  font-size: 0.7rem;
+}
+
+.signup button {
+  font-size: 0.8rem;
+  font-weight: 500;
+  &:hover {
+    font-weight: 800;
+  }
+}
