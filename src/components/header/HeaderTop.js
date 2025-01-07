@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./HeaderTop.module.css";
 import { logout } from "../../api/AuthApi";
+import { useUser } from "../../utils/UserContext";
 
 const HeaderTop = () => {
   const navigate = useNavigate();
+  const { logoutContext } = useUser();
 
   // 로그인 상태 확인 : Authorization 토큰 체크
   const isLoggedIn = Boolean(localStorage.getItem("Authorization"));
@@ -15,6 +17,7 @@ const HeaderTop = () => {
       // 성공하면 로컬스토리지에서 토큰 제거 및 로그인 페이지로 이동
       localStorage.removeItem("Authorization");
       navigate("/login");
+      logoutContext();
     } catch (error) {
       console.error("Logout failed:", error);
       alert("로그아웃에 실패했습니다. 다시 시도해주세요.");
