@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCategories } from "../../api/PostApi";
-import styles from "./NavBar.module.css";
+import styles from "./GlobalNavBar.module.css";
 
 // 이미지
 import { ReactComponent as HomeIcon } from "./images/home_icon.svg";

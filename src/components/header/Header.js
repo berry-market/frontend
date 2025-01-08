@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Input } from "../StyledComponents";
 import HeaderTop from "./HeaderTop";
-import NavBar from "../navigationBar/NavBar";
+import NavBar from "../navigationBar/GlobalNavBar";
 
 // 이미지
 import { ReactComponent as SearchIcon } from "./images/search_icon.svg";
