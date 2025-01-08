@@ -25,6 +25,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     const validationError = {};
     if (!nickname) validationError.nickname = "아이디를 입력하세요.";
     if (!password) validationError.password = "비밀번호를 입력하세요.";
@@ -53,7 +54,7 @@ const Login = () => {
       // 로그인 후 페이지 이동
       const defaultPath = role === "ADMIN" ? "/admin/users" : "/";
       const redirectTo = location.state?.from?.pathname || defaultPath;
-      window.location.href = redirectTo;
+      navigate(redirectTo);
     } catch (error) {
       console.error("Login failed:", error);
       alert("로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.");
