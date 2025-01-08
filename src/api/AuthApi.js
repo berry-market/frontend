@@ -5,7 +5,7 @@ export const login = async (data) => {
   const response = await api.post(`${API_URL}/auth/login`, data, {
     withCredentials: true,
   });
-  return response;
+  return response.data;
 };
 
 export const logout = async () => {

@@ -42,7 +42,7 @@ const Login = () => {
 
     try {
       const response = await login(data);
-      const { accessToken, userId, nickname, role } = response.data.data;
+      const { accessToken, userId, nickname, role } = response.data;
 
       // 로컬스토리지에 토큰 저장
       localStorage.setItem("Authorization", `Bearer ${accessToken}`);
