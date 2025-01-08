@@ -108,7 +108,7 @@ const Container = styled.div`
   position: relative;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
 `;
 
 const Input = styled.input`
