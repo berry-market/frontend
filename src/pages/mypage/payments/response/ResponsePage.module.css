@@ -1,0 +1,33 @@
+.wrapper {
+ margin: 5rem;
+}
+
+.image {
+  width: 6rem;
+  margin-bottom: 1rem;
+}
+
+.fail_image {
+  width: 10rem;
+}
+
+.info_container {
+  margin-top: 3rem;
+}
+
+.info_item {
+  padding: 0.8rem 0;
+  font-size: 1.4rem;
+}
+
+.info_item div {
+  color: var(--gray-dark);
+  margin-top: 0.6rem;
+}
+
+.button {
+  width: 10rem !important;
+  margin: 3rem 0;
+  padding: 0.8rem !important;
+  font-size: 1rem !important;
+}

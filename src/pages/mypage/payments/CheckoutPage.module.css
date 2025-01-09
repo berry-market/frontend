@@ -1,0 +1,35 @@
+.wrapper {
+  margin: 5rem;
+}
+
+.payment_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.payment_button {
+  padding: 2rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  &:hover {
+    border: 1px solid var(--text-color);
+    font-weight: 800;
+  }
+}
+
+.active {
+  border: 1px solid var(--text-color);
+  font-weight: 800;
+}
+
+.button {
+  width: 10rem !important;
+  margin: 1rem 0;
+  padding: 0.8rem !important;
+  font-size: 1rem !important;
+}

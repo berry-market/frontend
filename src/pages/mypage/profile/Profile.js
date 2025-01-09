@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Profile.module.css";
 import { useUser } from "../../../utils/UserContext";
 import { getUserById } from "../../../api/UserApi";
 import { Button } from "../../../components/StyledComponents";
+import ChargeModal from "../payments/ChargeModal";
 
 // 이미지
 import { ReactComponent as UserIcon } from "./images/user_icon.svg";
@@ -10,6 +12,9 @@ import { ReactComponent as UserIcon } from "./images/user_icon.svg";
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(null);
   const { user } = useUser();
+  const [showModal, setShowModal] = useState(false);
+  const [amount, setAmount] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -27,6 +32,34 @@ const Profile = () => {
   if (!userInfo) {
     return <div>Loading...</div>;
   }
+
+  const handleChargeClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleConfirmModal = (amount) => {
+    if (amount > 0) {
+      setShowModal(false);
+      // 새창으로 Checkout 페이지 열기
+      const url = `/payments/checkout?amount=${amount}`;
+      // 화면 너비, 높이 가져오기
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      const width = 700;
+      const height = 700;
+      const left = (screenWidth - width) / 2;
+      const top = (screenHeight - height) / 2;
+      const position = `width=${width},height=${height},top=${top},left=${left}`;
+
+      window.open(url, "_blank", position);
+    } else {
+      alert("유효한 금액을 입력해주세요.");
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -59,7 +92,7 @@ const Profile = () => {
           <div className={styles.info}>
             <h2>포인트</h2>
             <p>{userInfo.point.toLocaleString()}</p>
-            <Button>충전</Button>
+            <Button onClick={handleChargeClick}>충전</Button>
           </div>
         </div>
       </div>
@@ -67,6 +100,14 @@ const Profile = () => {
         <button>비밀번호 변경</button>
         <button>회원 탈퇴</button>
       </div>
+
+      {/* 모달 */}
+      {showModal && (
+        <ChargeModal
+          onClose={handleCloseModal}
+          onConfirm={handleConfirmModal}
+        />
+      )}
     </div>
   );
 };
