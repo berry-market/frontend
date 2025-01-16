@@ -12,7 +12,8 @@
 }
 
 .payment_button {
-  padding: 2rem;
+  text-align: center;
+  height: 5rem;
   border: 1px solid var(--gray-color);
   border-radius: 1rem;
   font-size: 1.2rem;
