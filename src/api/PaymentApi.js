@@ -8,5 +8,5 @@ export const saveTempPayment = async (orderId, amount) => {
 
 // 결제 승인 요청
 export const confirmPayment = async (requestData) => {
-  return await api.post(`${API_URL}/payments/toss-confirm`, requestData);
+  return await api.post(`${API_URL}/payments/confirm`, requestData);
 };
