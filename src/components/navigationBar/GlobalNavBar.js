@@ -7,32 +7,20 @@ import styles from "./GlobalNavBar.module.css";
 import { ReactComponent as HomeIcon } from "./images/home_icon.svg";
 
 const NavBar = () => {
-  // 더미 데이터
-  const categories = [
-    { id: 1, categoryName: "패션·잡화·뷰티" },
-    { id: 2, categoryName: "스포츠·취미" },
-    { id: 3, categoryName: "디지털·가전" },
-    { id: 4, categoryName: "가구·홈데코" },
-    { id: 5, categoryName: "식품·생필품" },
-    { id: 6, categoryName: "자동차·공구" },
-    { id: 7, categoryName: "반려동물 용품" },
-    { id: 8, categoryName: "기타" },
-  ];
-
-  // const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const response = await getCategories();
-  //       setCategories(response.data);
-  //     } catch (error) {
-  //       console.error("Failed to fetch categories", error);
-  //     }
-  //   };
-  //   fetchCategories();
-  // }, []);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await getCategories();
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Failed to fetch categories", error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   const handleNavClick = (id) => {
     const queryString = id !== null ? `?categoryId=${id}` : "";
