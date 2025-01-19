@@ -1,0 +1,59 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup_container {
+  width: 450px;
+}
+
+.title {
+  color: var(--text-color);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.form_item {
+  margin: 0.5rem 0;
+}
+
+.form_item label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.id_container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 0.5rem;
+}
+
+.password_container {
+  position: relative;
+}
+
+.see_pw_button {
+  position: absolute;
+  right: 0.5rem;
+  top: 26%;
+  background: none;
+  border: none;
+}
+
+.eye_icon {
+  height: 0.8rem;
+  color: var(--gray-dark);
+}
+
+.signup_button {
+  margin-top: 1.5rem;
+}
