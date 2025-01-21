@@ -2,7 +2,7 @@ import axios from "axios";
 import { SERVER_URL } from "../api/ApiConfig";
 
 const api = axios.create({
-  baseURL: SERVER_URL,
+  baseURL: `http://${SERVER_URL}`,
   timeout: 10000,
   withCredentials: true,
 });

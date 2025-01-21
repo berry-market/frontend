@@ -11,6 +11,7 @@ import Profile from "./pages/mypage/profile/Profile.js";
 import CheckoutPage from "./pages/mypage/payments/CheckoutPage.js";
 import SuccessPage from "./pages/mypage/payments/response/SuccessPage.js";
 import FailPage from "./pages/mypage/payments/response/FailPage.js";
+import BidChat from "./pages/chat/BidChat.js";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
                 <Route path="fail" element={<FailPage />} />
               </Route>
             </Route>
+            <Route path="/bid-chat" element={<BidChat />} />
           </Routes>
         </div>
       </UserProvider>
