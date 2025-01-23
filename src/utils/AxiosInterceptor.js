@@ -40,6 +40,22 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
+    // 에러 응답 처리
+    if (error.response?.status === 401) {
+      const errorMessage = error.response?.data?.message;
+      console.log(errorMessage);
+
+      if (
+        errorMessage === "Invalid or expired token" ||
+        errorMessage === "Access token is blacklisted"
+      ) {
+        localStorage.removeItem("Authorization");
+        localStorage.removeItem("user");
+
+        alert("세션이 만료되었습니다. 다시 로그인해주세요.");
+        window.location.href = "/login";
+      }
+    }
     return Promise.reject(error);
   }
 );
