@@ -1,6 +1,7 @@
 .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    gap: 2rem;
     align-items: center;
     max-width: 1024px;
     margin: 0 auto;
@@ -35,7 +36,6 @@
 .search input {
   border: 1px solid var(--background-color);
   background-color: var(--gray-light);
-  width: 30rem;
 }
 
 .search_icon {
@@ -49,7 +49,7 @@
 .header_right {
   display: flex;
   gap: 1rem;
-
+  justify-content: end;
 }
 
 .heart_icon {

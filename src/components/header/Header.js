@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Input } from "../StyledComponents";
 import HeaderTop from "./HeaderTop";
 import NavBar from "../navigationBar/GlobalNavBar";
+import { useUser } from "../../utils/UserContext";
 
 // 이미지
 import { ReactComponent as SearchIcon } from "./images/search_icon.svg";
@@ -11,25 +12,24 @@ import { ReactComponent as HeartIcon } from "./images/heart_icon.svg";
 import { ReactComponent as BellIcon } from "./images/bell_icon.svg";
 
 const Header = () => {
+  const { user } = useUser();
   const [keyword, setKeyword] = useState("");
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 로고만 보이는 페이지
   const isAuthPage =
     location.pathname === "/login" || location.pathname === "/signup";
 
   const handleSearch = () => {
-    // 공백으로 키워드 분리
     const keywordsArray = keyword.split(" ").filter(Boolean);
-    // 분리된 키워드 ","로 조인
     const queryString = keywordsArray.length
-      ? `?keywords=${keywordsArray
+      ? `?keyword=${keywordsArray
           .map((word) => encodeURIComponent(word))
           .join(",")}`
       : "";
     navigate(`/posts${queryString}`);
+    setKeyword("");
   };
 
   const handleLogoClick = () => {
@@ -68,15 +68,20 @@ const Header = () => {
                 onClick={handleSearch}
               />
             </div>
+
             <div className={styles.header_right}>
-              <HeartIcon
-                className={styles.heart_icon}
-                onClick={handleHeartClick}
-              />
-              <BellIcon
-                className={styles.bell_icon}
-                onClick={handleBellClick}
-              />
+              {user && (
+                <>
+                  <HeartIcon
+                    className={styles.heart_icon}
+                    onClick={handleHeartClick}
+                  />
+                  <BellIcon
+                    className={styles.bell_icon}
+                    onClick={handleBellClick}
+                  />
+                </>
+              )}
             </div>
           </>
         )}
