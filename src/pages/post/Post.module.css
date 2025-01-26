@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.header button {
+  width: 5rem;
+}
+
+.option_container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.page_button {
+  font-size: 0.8rem;
+}
+
+.active_page {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
