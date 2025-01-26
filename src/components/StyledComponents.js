@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
-// 전역 스타일 정의
 const GlobalStyle = createGlobalStyle`
 
   :root { 
@@ -192,6 +193,48 @@ const Modal = styled.div`
   transition: all 0.3s ease-in-out;
 `;
 
+const CustomDropdown = styled(Dropdown)`
+  .Dropdown-control {
+    background-color: var(--background-color);
+    border: 1px solid var(--line-color);
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.7rem;
+    color: var(--text-color);
+    &:hover {
+      border-color: var(--blue-color);
+    }
+  }
+
+  & .Dropdown-menu {
+    margin-top: 0.2rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--line-color);
+    z-index: 10;
+  }
+
+  & .Dropdown-option {
+    font-size: 0.7rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--gray-light);
+    }
+
+    &.is-selected {
+      background-color: var(--blue-color);
+      color: var(--background-color);
+    }
+  }
+
+  & .Dropdown-arrow {
+    border-color: var(--text-color) transparent transparent transparent;
+  }
+`;
+
 export {
   GlobalStyle,
   Container,
@@ -200,4 +243,5 @@ export {
   Button,
   ModalOverlay,
   Modal,
+  CustomDropdown,
 };
