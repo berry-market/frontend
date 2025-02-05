@@ -12,11 +12,11 @@ export const checkIdDuplicate = async (nickname) => {
 };
 
 export const getUserById = async (userId) => {
-  try {
-    const response = await api.get(`${API_URL}/users/${userId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Failed to fetch user info for userId: ${userId}`, error);
-    throw error;
-  }
+  const response = await api.get(`${API_URL}/users/${userId}`);
+  return response.data;
+};
+
+export const getUserByWriterId = async (writerId) => {
+  const response = await api.get(`${API_URL}/users/${writerId}/writer`);
+  return response.data;
 };
