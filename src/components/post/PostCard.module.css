@@ -27,7 +27,7 @@
 }
 
 .image_container {
-  height: 10rem;
+  height: 9rem;
   background-color: var(--gray-color);
   border: 1px solid var(--gray-light);
   position: relative;
