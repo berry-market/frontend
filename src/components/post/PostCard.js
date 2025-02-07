@@ -65,7 +65,7 @@ const PostCard = ({
       <div className={`${styles.auction_status} ${styles[productStatus]}`}>
         {auctionStatus}
       </div>
-      <div className={styles.image_container}>
+      <div className={styles.image_container} onClick={handleCardClick}>
         {productImage && productImage.trim() ? (
           <div className={styles.image_wrapper}>
             <img
@@ -73,7 +73,6 @@ const PostCard = ({
               alt={productName}
               className={styles.product_image}
               onError={(e) => (e.target.src = noImage)}
-              onClick={handleCardClick}
             />
           </div>
         ) : (
