@@ -13,6 +13,7 @@ import SuccessPage from "./pages/mypage/payments/response/SuccessPage.js";
 import FailPage from "./pages/mypage/payments/response/FailPage.js";
 import BidChat from "./pages/chat/BidChat.js";
 import Post from "./pages/post/Post.js";
+import PostMain from "./pages/post/PostMain.js";
 import PostDetail from "./pages/post/PostDetail/PostDetail.js";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route path="/login" element={<Login />} />
               <Route path="/Signup" element={<Signup />} />
+              <Route path="/" element={<PostMain />} />
               <Route path="/Posts" element={<Post />} />
               <Route path="/posts/details/:postId" element={<PostDetail />} />
               {/* 마이페이지 */}
