@@ -23,8 +23,11 @@ const NavBar = () => {
   }, []);
 
   const handleNavClick = (id) => {
-    const queryString = id !== null ? `?categoryId=${id}` : "";
-    navigate(`/posts${queryString}`);
+    if (id === null) {
+      navigate(`/`);
+    } else {
+      navigate(`/posts?categoryId=${id}`);
+    }
   };
 
   return (
