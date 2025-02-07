@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  justify-self: center;
   width: 9rem;
 }
 
@@ -36,7 +37,7 @@
 
 .image_wrapper {
   display: flex;
-  justify-content: center;
+  justify-self: center;
   align-items: center;
   position: relative;
   width: 100%;
